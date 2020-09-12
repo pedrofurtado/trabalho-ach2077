@@ -1,0 +1,8 @@
+h2 Visualizar Usuário
+
+p
+  strong Email:
+  = @user.email
+- if @user == current_user
+  = link_to 'Editar', "/system-users/#{@user.id}/edit", class: 'btn btn-warning text-white', style: 'margin-left: 10px; color: #fff'
+= link_to 'Listar todos', "/system-users", class: 'btn btn-info text-white', style: 'margin-left: 10px; color: #fff'

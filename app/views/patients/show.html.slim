@@ -1,0 +1,23 @@
+h2 Visualizar Paciente
+
+p
+  strong Nome:
+  = @patient.name
+p
+  strong Sexo:
+  = @patient.sex
+p
+  strong Data de nascimento:
+  = @patient.birthday
+p
+  strong Email:
+  = @patient.email
+p
+  strong Telefone:
+  = @patient.phone
+p
+  strong Observações:
+  = @patient.description
+
+= link_to 'Editar', edit_patient_path(@patient), class: 'btn btn-warning text-white', style: 'margin-left: 10px; color: #fff'
+= link_to 'Listar todos', patients_path, class: 'btn btn-info text-white', style: 'margin-left: 10px; color: #fff'

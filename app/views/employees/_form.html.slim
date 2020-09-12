@@ -1,0 +1,10 @@
+= simple_form_for @employee do |f|
+  = validation_messages_for @employee
+  = f.input :name, label: 'Nome'
+  = f.input :email, label: 'Email'
+  = f.input :job, label: 'Cargo'
+  = f.input :phone, label: 'Telefone'
+  = f.button :submit, 'Salvar', class: 'btn btn-primary'
+  - if @employee.persisted?
+    = link_to 'Visualizar', employee_path(@employee), class: 'btn btn-warning text-white', style: 'margin-left: 10px; color: #fff'
+  = link_to 'Listar todos', employees_path, class: 'btn btn-info text-white', style: 'margin-left: 10px; color: #fff'

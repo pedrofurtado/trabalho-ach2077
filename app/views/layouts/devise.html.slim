@@ -1,0 +1,10 @@
+doctype html
+html
+  = render 'layouts/head'
+  body.hold-transition.login-page
+    .login-box
+      .login-logo.margin-bottom-none style='background-color: #fff;'
+        = image_tag 'logo.png'
+      .login-box-body
+        = flash_messages
+        = yield

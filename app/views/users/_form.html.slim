@@ -1,0 +1,7 @@
+= simple_form_for @user do |f|
+  = validation_messages_for @user
+  = f.input :email, label: 'Email'
+  = f.button :submit, 'Salvar', class: 'btn btn-primary'
+  - if @user.persisted?
+    = link_to 'Visualizar', "/system-users/#{@user.id}", class: 'btn btn-warning text-white', style: 'margin-left: 10px; color: #fff'
+  = link_to 'Listar todos', "/system-users", class: 'btn btn-info text-white', style: 'margin-left: 10px; color: #fff'

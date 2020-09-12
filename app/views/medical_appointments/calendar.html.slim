@@ -1,0 +1,25 @@
+h2 Calendário de Consultas
+
+.box
+  .box-body
+    = link_to 'Criar Consulta', new_medical_appointment_path, class: 'btn btn-success'
+    #medical-appointments-calendar
+    javascript:
+      $(document).ready(function() {
+        $('#medical-appointments-calendar').fullCalendar({
+          locale: 'pt-BR',
+          navLinks: true,
+
+          buttonText: {
+            today: 'Hoje'
+          },
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,basicWeek,agendaWeek,listWeek,basicDay,agendaDay'
+          },
+          events: #{@medical_appointments}
+        });
+      });
+    br
+    br

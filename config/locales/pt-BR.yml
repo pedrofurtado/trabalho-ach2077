@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    attributes:
+      medical_appointment:
+        patient: Paciente
+        patient_id: Paciente
+        employee: Funcionário
+        employee_id: Funcionário
+        start_time: Horário inicio
+        finish_time: Horário fim
+        description: 'Observações'
+      employee:
+        name: 'Nome'
+        phone: 'Telefone'
+        job: 'Cargo'
+      patient:
+        name: "Nome"
+        sex: 'Sexo'
+        phone: 'Telefone'
+        description: 'Observações'

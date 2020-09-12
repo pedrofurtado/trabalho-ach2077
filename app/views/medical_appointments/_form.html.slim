@@ -1,0 +1,12 @@
+= simple_form_for @medical_appointment do |f|
+  = validation_messages_for @medical_appointment
+  = f.association :patient, label: 'Paciente'
+  = f.association :employee, label: 'Funcionário'
+  = f.input :scheduled_at, as: :date, label: 'Data'
+  = f.input :start_time, label: 'Horário inicio'
+  = f.input :finish_time, label: 'Horário fim'
+  = f.input :description, label: 'Observações'
+  = f.button :submit, 'Salvar', class: 'btn btn-primary'
+  - if @medical_appointment.persisted?
+    = link_to 'Visualizar', medical_appointment_path(@medical_appointment), class: 'btn btn-warning text-white', style: 'margin-left: 10px; color: #fff'
+  = link_to 'Listar todos', medical_appointments_path, class: 'btn btn-info text-white', style: 'margin-left: 10px; color: #fff'

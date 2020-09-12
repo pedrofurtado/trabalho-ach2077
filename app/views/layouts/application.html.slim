@@ -1,0 +1,59 @@
+doctype html
+html
+  = render 'layouts/head'
+  body.skin-green.sidebar-mini
+    .wrapper
+      header.main-header
+        = link_to root_path, class: 'logo' do
+          span.logo-mini MyD
+          span.logo-lg
+            /= image_tag 'logotype_without_text', width: '30px', class: 'margin-r-5'
+            | My Doctor
+        nav.navbar.navbar-static-top role='navigation'
+          .navbar-custom-menu
+            ul.nav.navbar-nav
+              li
+                = link_to destroy_user_session_path do
+                  i.fa.fa-sign-out
+      aside.main-sidebar
+        section.sidebar
+          .user-panel
+            p style='color: #fff;'
+              = current_user.email
+            a style='font-size: 12px'
+              i.fa.fa-circle.text-success.margin-r-5
+              | Online
+          ul.sidebar-menu.tree
+            li
+              a href="/"
+                span
+                  |Página inicial
+            li
+              a href="#{employees_path}"
+                span
+                  |Funcionários
+            li
+              a href="/system-users"
+                span
+                  |Usuários
+            li
+              a href="#{medical_appointments_path}"
+                span
+                  |Consultas
+            li
+              a href="#{patients_path}"
+                span
+                  |Pacientes
+            li
+              a href="/calendar"
+                span
+                  |Calendário de Consultas
+      .content-wrapper
+        section.content-header
+          h1
+            = content_for :page_title
+        section.content.container-fluid
+          = flash_messages
+          = yield
+      footer.main-footer
+        | Copyright © #{Date.current.year} - My Doctor - Todos os direitos reservados.

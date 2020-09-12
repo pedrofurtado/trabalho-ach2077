@@ -1,0 +1,3 @@
+heroku.detecting.config.for.assets.compile=false
+heroku.detecting.config.for.action_dispatch.x_sendfile_header=
+heroku.detecting.config.for.active_storage.service=local

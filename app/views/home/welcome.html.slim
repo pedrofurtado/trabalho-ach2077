@@ -1,0 +1,41 @@
+h2.margin-bottom Bem-Vindo à página inicial do My Doctor!
+.row
+  .text-center
+    = image_tag 'logo.png'
+.row
+  .col-md-3.col-sm-6.col-xs-12
+    .info-box
+      span.info-box-icon.bg-aqua
+        i.ion.ion-ios-gear-outline
+      .info-box-content
+        span.info-box-text Usuários
+        span.info-box-number
+          = User.count
+  a.text-black href="#{employees_path}"
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-red
+          i.fa.fa-goog1le-plus
+        .info-box-content
+          span.info-box-text Funcionários
+          span.info-box-number
+            = Employee.count
+  .clearfix.visible-sm-block
+  a.text-black href="#{medical_appointments_path}"
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-green
+          i.ion.ion-ios-cart-outline
+        .info-box-content
+          span.info-box-text Consultas
+          span.info-box-number
+            = MedicalAppointment.count
+  a.text-black href="#{patients_path}"
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-yellow
+          i.ion.ion-ios-people-outline
+        .info-box-content
+          span.info-box-text Pacientes
+          span.info-box-number
+            = Patient.count

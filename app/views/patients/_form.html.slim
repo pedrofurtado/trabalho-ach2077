@@ -1,0 +1,12 @@
+= simple_form_for @patient do |f|
+  = validation_messages_for @patient
+  = f.input :name, label: 'Nome'
+  = f.input :sex, label: 'Sexo'
+  = f.input :birthday, as: :date, label: 'Data de nascimento'
+  = f.input :email, label: 'Email'
+  = f.input :phone, label: 'Telefone'
+  = f.input :description, label: 'Observações'
+  = f.button :submit, 'Salvar', class: 'btn btn-primary'
+  - if @patient.persisted?
+    = link_to 'Visualizar', patient_path(@patient), class: 'btn btn-warning text-white', style: 'margin-left: 10px; color: #fff'
+  = link_to 'Listar todos', patients_path, class: 'btn btn-info text-white', style: 'margin-left: 10px; color: #fff'

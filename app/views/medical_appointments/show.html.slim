@@ -1,0 +1,22 @@
+h2 Visualizar Consulta
+p
+  strong Paciente:
+  = @medical_appointment.patient.name
+p
+  strong Funcionário:
+  = @medical_appointment.employee.name
+p
+  strong Data:
+  = @medical_appointment.scheduled_at
+p
+  strong Horário inicio:
+  = @medical_appointment.start_time
+p
+  strong Horário fim:
+  = @medical_appointment.finish_time
+p
+  strong Observações:
+  = @medical_appointment.description
+
+= link_to 'Editar', edit_medical_appointment_path(@medical_appointment), class: 'btn btn-warning text-white', style: 'margin-left: 10px; color: #fff'
+= link_to 'Listar todos', medical_appointments_path, class: 'btn btn-info text-white', style: 'margin-left: 10px; color: #fff'

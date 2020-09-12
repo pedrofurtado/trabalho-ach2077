@@ -1,0 +1,27 @@
+h1 Listar todos os Funcionários
+
+.box
+  .box-body
+    table.table.table-hover
+      thead
+        tr
+          th Nome
+          th Email
+          th Cargo
+          th Telefone
+          th
+      tbody
+        - @employees.each do |employee|
+          tr
+            td = employee.name
+            td = employee.email
+            td = employee.job
+            td = employee.phone
+            td
+              = link_to 'Visualizar', employee, class: 'btn btn-info margin-r-5 '
+              = link_to 'Editar', edit_employee_path(employee), class: 'margin-r-5 btn btn-success'
+              = link_to 'Excluir', employee, class: 'btn btn-danger', data: { confirm: 'Tem certeza?' }, method: :delete
+
+    br
+
+    = link_to 'Criar Funcionário', new_employee_path, class: 'btn btn-success'

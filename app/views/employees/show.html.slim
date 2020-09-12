@@ -1,0 +1,16 @@
+h2 Visualizar Funcionário
+p
+  strong Nome:
+  = @employee.name
+p
+  strong Email:
+  = @employee.email
+p
+  strong Cargo:
+  = @employee.job
+p
+  strong Telefone:
+  = @employee.phone
+
+= link_to 'Editar', edit_employee_path(@employee), class: 'btn btn-warning text-white', style: 'margin-left: 10px; color: #fff'
+= link_to 'Listar todos', employees_path, class: 'btn btn-info text-white', style: 'margin-left: 10px; color: #fff'

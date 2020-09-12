@@ -1,0 +1,19 @@
+h1 Listar todos os Usuários
+
+.box
+  .box-body
+    table.table.table-hover
+      thead
+        tr
+          th Email
+          th
+
+      tbody
+        - @users.each do |user|
+          tr
+            td = user.email
+            td
+              = link_to 'Visualizar', "/system-users/#{user.id}", class: 'btn btn-info margin-r-5 '
+              - if user == current_user
+                = link_to 'Editar', "/system-users/#{user.id}/edit", class: 'margin-r-5 btn btn-success'
+                = link_to 'Excluir', "/system-users/#{user.id}", class: 'btn btn-danger', data: { confirm: 'Tem certeza?' }, method: :delete

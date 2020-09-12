@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  reconnect: true
+  encoding: <%= ENV['DATABASE_ENCODING'] %>
+  pool: <%= ENV['DATABASE_POOL'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
+  user: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: <%= ENV['DATABASE_NAME_FOR_TESTING'] %>
+
+production:
+  <<: *default

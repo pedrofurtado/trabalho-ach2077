@@ -1,0 +1,47 @@
+version: '3'
+volumes:
+  database-data:
+  bundle-data:
+services:
+  database:
+    image: postgres:10
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    ports:
+      - 5432
+    volumes:
+      - database-data:/var/lib/postgresql/data
+  app:
+    user: root
+    stdin_open: true
+    tty: true
+    build:
+      context: ../
+      dockerfile: ./docker/app/Dockerfile
+    volumes:
+      - ../:/app
+      - bundle-data:/usr/local/bundle
+    environment:
+      - RAILS_ENV=${RAILS_ENV}
+    depends_on:
+      - database
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    depends_on:
+      - app
+    ports:
+      - 80
+    volumes:
+      - ../log:/log
+  mailer:
+    build:
+      context: ./mailer
+      dockerfile: Dockerfile
+    depends_on:
+      - app
+    ports:
+      - 1025
+      - 1080

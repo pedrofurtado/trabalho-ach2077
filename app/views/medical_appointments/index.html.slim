@@ -1,0 +1,32 @@
+h1 Listar todas as Consultas
+
+.box
+  .box-body
+    table.table.table-hover
+      thead
+        tr
+          th Paciente
+          th Funcionário
+          th Data
+          th Horário inicio
+          th Horário fim
+          th Observações
+          th
+
+      tbody
+        - @medical_appointments.each do |medical_appointment|
+          tr
+            td = medical_appointment.patient.name
+            td = medical_appointment.employee.name
+            td = medical_appointment.scheduled_at
+            td = medical_appointment.start_time
+            td = medical_appointment.finish_time
+            td = medical_appointment.description
+            td
+              = link_to 'Visualizar', medical_appointment, class: 'btn btn-info margin-r-5 '
+              = link_to 'Editar', edit_medical_appointment_path(medical_appointment), class: 'margin-r-5 btn btn-success'
+              = link_to 'Excluir', medical_appointment, class: 'btn btn-danger', data: { confirm: 'Tem certeza?' }, method: :delete
+
+    br
+
+    = link_to 'Criar Consulta', new_medical_appointment_path, class: 'btn btn-success'

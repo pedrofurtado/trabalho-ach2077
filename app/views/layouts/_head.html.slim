@@ -1,0 +1,13 @@
+head
+  meta http-equiv='X-UA-Compatible' content='IE=edge'
+  meta charset='utf-8'
+  meta name='viewport' content='width=device-width, initial-scale=1'
+  title
+    - if content_for :page_title
+      | My Doctor - #{content_for :page_title}
+    - else
+      | My Doctor
+  /= favicon_link_tag
+  = csrf_meta_tags
+  = stylesheet_link_tag 'application'
+  = javascript_include_tag 'application'

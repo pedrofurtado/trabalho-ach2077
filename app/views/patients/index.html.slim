@@ -1,0 +1,32 @@
+h1 Listar todos os Pacientes
+
+.box
+  .box-body
+    table.table.table-hover
+      thead
+        tr
+          th Nome
+          th Sexo
+          th Data de nascimento
+          th Email
+          th Telefone
+          th Observações
+          th
+
+      tbody
+        - @patients.each do |patient|
+          tr
+            td = patient.name
+            td = patient.sex
+            td = patient.birthday
+            td = patient.email
+            td = patient.phone
+            td = patient.description
+            td
+              = link_to 'Visualizar', patient, class: 'btn btn-info margin-r-5 '
+              = link_to 'Editar', edit_patient_path(patient), class: 'margin-r-5 btn btn-success'
+              = link_to 'Excluir', patient, class: 'btn btn-danger', data: { confirm: 'Tem certeza?' }, method: :delete
+
+    br
+
+    = link_to 'Criar Paciente', new_patient_path, class: 'btn btn-success'
